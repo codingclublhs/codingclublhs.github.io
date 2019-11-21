@@ -1,0 +1,102 @@
+<!doctype html>
+<style>
+.form {
+  margin-top: 70px;
+}
+
+input {
+  width: 450px;
+  height: 70px;
+  font-family: 'Kulim Park', sans-serif;
+  border-radius: 15px;
+  border: 1px solid white;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  font-size: 50px;
+  padding-left: 15px;
+  margin-left: 365px;
+}
+
+input::placeholder {
+  font-family: 'Raleway', sans-serif;
+}
+
+button {
+  width: 110px;
+  height: 50px;
+  background-color: #00DBFF;
+  border-radius: 15px;
+  border: 1px solid #00DBFF;
+  color: white;
+  font-family: 'Kulim Park', sans-serif;
+  font-size: 30px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  cursor: pointer;
+  margin-left: 100px;
+  vertical-align: 8px;
+}
+
+button:active {
+  background-color: white;
+  color: #00DBFF;
+  border: 1px solid white;
+}
+
+html {
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(-35deg, rgb(160, 0, 255) 30%, rgb(0, 181, 255));
+  position: absolute;
+  padding-top: 80px;
+}
+
+h1 {
+  font-family: 'Kulim Park', sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 100px;
+}
+
+h2 {
+  font-family: 'Kulim Park', sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 60px;
+}
+</style>
+
+
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Kulim+Park:700|Raleway:100&display=swap" rel="stylesheet">
+</head>
+<h1>Welcome to LHS</br>Coding Club!</h1>
+<h2>Please enter your name:</h2>
+<div class="form">
+<input id="name" placeholder="Name" autocomplete="off"/>
+<button id="enter" onclick="send()">Enter</button>
+<div>
+</html>
+
+
+<script>
+var list = [];
+var enter = document.getElementById("name");
+enter.addEventListener("keyup", function(event){
+  if(event.keyCode === 13){
+    document.getElementById("enter").click();
+  }
+});
+
+function send(){
+  if(document.getElementById("name").value !== ""){
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    var s = d.getSeconds();
+    if(h > 12){
+      h -= 12;
+    }
+    list.push(document.getElementById("name").value+ "[" + h + ":" + m + "." + s + "]");
+    document.getElementById("name").value = ""
+}}
+</script>
